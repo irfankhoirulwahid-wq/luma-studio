@@ -14,6 +14,20 @@
   box-sizing: border-box;
 }
 
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => {
+        console.log("Luma Studio offline ready");
+      })
+      .catch(error => {
+        console.error("Service Worker error:", error);
+      });
+  });
+}
+</script>
+        
 body {
   margin: 0;
   background: #111;
